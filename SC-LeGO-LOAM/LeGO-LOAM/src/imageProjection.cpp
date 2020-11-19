@@ -469,39 +469,39 @@ public:
 
         pcl::toROSMsg(*outlierCloud, laserCloudTemp);
         laserCloudTemp.header.stamp = cloudHeader.stamp;
-        laserCloudTemp.header.frame_id = "base_link";
+        laserCloudTemp.header.frame_id = "base_link_map";
         pubOutlierCloud.publish(laserCloudTemp);
         // segmented cloud with ground
         pcl::toROSMsg(*segmentedCloud, laserCloudTemp);
         laserCloudTemp.header.stamp = cloudHeader.stamp;
-        laserCloudTemp.header.frame_id = "base_link";
+        laserCloudTemp.header.frame_id = "base_link_map";
         pubSegmentedCloud.publish(laserCloudTemp);
         // projected full cloud
         if (pubFullCloud.getNumSubscribers() != 0){
             pcl::toROSMsg(*fullCloud, laserCloudTemp);
             laserCloudTemp.header.stamp = cloudHeader.stamp;
-            laserCloudTemp.header.frame_id = "base_link";
+            laserCloudTemp.header.frame_id = "base_link_map";
             pubFullCloud.publish(laserCloudTemp);
         }
         // original dense ground cloud
         if (pubGroundCloud.getNumSubscribers() != 0){
             pcl::toROSMsg(*groundCloud, laserCloudTemp);
             laserCloudTemp.header.stamp = cloudHeader.stamp;
-            laserCloudTemp.header.frame_id = "base_link";
+            laserCloudTemp.header.frame_id = "base_link_map";
             pubGroundCloud.publish(laserCloudTemp);
         }
         // segmented cloud without ground
         if (pubSegmentedCloudPure.getNumSubscribers() != 0){
             pcl::toROSMsg(*segmentedCloudPure, laserCloudTemp);
             laserCloudTemp.header.stamp = cloudHeader.stamp;
-            laserCloudTemp.header.frame_id = "base_link";
+            laserCloudTemp.header.frame_id = "base_link_map";
             pubSegmentedCloudPure.publish(laserCloudTemp);
         }
         // projected full cloud info
         if (pubFullInfoCloud.getNumSubscribers() != 0){
             pcl::toROSMsg(*fullInfoCloud, laserCloudTemp);
             laserCloudTemp.header.stamp = cloudHeader.stamp;
-            laserCloudTemp.header.frame_id = "base_link";
+            laserCloudTemp.header.frame_id = "base_link_map";
             pubFullInfoCloud.publish(laserCloudTemp);
         }
     }

@@ -54,8 +54,8 @@ typedef pcl::PointXYZI  PointType;
 
 // extern const string pointCloudTopic = "/velodyne_points";
 // extern const string pointCloudTopic = "/kitti_scan";
-extern const string pointCloudTopic = "/os1_points";
-extern const string imuTopic = "/imu/data";
+extern const string pointCloudTopic = "/robot/lidar_3d/points";
+extern const string imuTopic = "/robot/imu/data";
 
 // Save pcd
 extern const string fileDirectory = "/tmp/";
@@ -98,17 +98,26 @@ extern const bool useCloudRing = false; // if true, ang_res_y and ang_bottom are
 // extern const int groundScanInd = 7;
 
 // Ouster OS1-64
-extern const int N_SCAN = 64;
-extern const int Horizon_SCAN = 1024;
-extern const float ang_res_x = 360.0/float(Horizon_SCAN);
-extern const float ang_res_y = 33.2/float(N_SCAN-1);
-extern const float ang_bottom = 16.6+0.1;
-extern const int groundScanInd = 15;
+// extern const int N_SCAN = 16;
+// extern const int Horizon_SCAN = 3600;
+// extern const float ang_res_x = 360.0/float(Horizon_SCAN);
+// extern const float ang_res_y = 2.0;
+// extern const float ang_bottom = 15.0;
+// extern const int groundScanInd = 10;
+
+//RS-LIDAR-16
+extern const int N_SCAN = 16;
+extern const int Horizon_SCAN = 2016;
+extern const float ang_res_x = 0.17857;
+extern const float ang_res_y = 2;
+extern const float ang_bottom = 15.0;
+extern const int groundScanInd = 7;
+
 
 extern const bool loopClosureEnableFlag = true;
 extern const double mappingProcessInterval = 0.3;
 
-extern const float scanPeriod = 0.1;
+extern const float scanPeriod = 1.0/8.93;
 extern const int systemDelay = 0;
 extern const int imuQueLength = 200;
 
